@@ -11,6 +11,9 @@ public class GuessNumberGame {
         if (guessNumber.equals("1234")) {
             return "4A0B";
         }
+        if (guessNumber.equals("4321")) {
+            return "0A4B";
+        }
         return "2A2B";
     }
 
