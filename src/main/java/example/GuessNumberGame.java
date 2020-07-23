@@ -4,8 +4,6 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class GuessNumberGame {
-    private String guessNumber;
-    private GuessNumberGenerate guessNumberGenerate;
     private FourNumberGenerate fourNumberGenerate;
 
     public GuessNumberGame(FourNumberGenerate fourNumberGenerate) {
@@ -41,24 +39,6 @@ public class GuessNumberGame {
         } else {
             return "Wrong Input，Input again";
         }
-
-
-//        if (guessNumberGenerate.generateRandomNumber().equals(guessNumber)) {
-//            return "4A0B";
-//        }
-//        if (guessNumber.equals("4321")) {
-//            return "0A4B";
-//        }
-//        if (guessNumber.equals("1023")) {
-//            return "1A3B";
-//        }
-//        if (guessNumber.equals("2107")) {
-//            return "0A2B";
-//        }
-//        if (guessNumber.equals("5678")) {
-//            return "0A0B";
-//        }
-//        return "2A2B";
     }
 
 
@@ -89,28 +69,11 @@ public class GuessNumberGame {
             }
         }
 
-//        if (countA == countB) {
-//            countB = 0;
-//        }
         if (countA + countB > 4) {
             countB = 4 - countA;
         }
 
         return String.format("%sA%sB", countA, countB);
-    }
-
-//    public int countRightNumberAndRightPosition(Map<Character, Integer> numberIndexMap, String randomNumber) {
-//
-//
-//        return countA;
-//    }
-
-    public String getGuessNumber() {
-        return guessNumber;
-    }
-
-    public void setGuessNumber(String guessNumber) {
-        this.guessNumber = guessNumber;
     }
 
 }
