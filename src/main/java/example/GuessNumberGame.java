@@ -1,8 +1,6 @@
 package example;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class GuessNumberGame {
@@ -15,7 +13,8 @@ public class GuessNumberGame {
     }
 
     public boolean isVirtualNumber(String guessNumber) {
-        if (guessNumber.length() == 4 && containNotRepeatCharacter(guessNumber) && Integer.parseInt(guessNumber) >= 0 && Integer.parseInt(guessNumber) <= 9999) {
+        String number = guessNumber.trim();
+        if (number.length() == 4 && containNotRepeatCharacter(number) && Integer.parseInt(number) >= 0 && Integer.parseInt(number) <= 9999) {
             return true;
         }
         return false;
@@ -25,19 +24,24 @@ public class GuessNumberGame {
         if (guessNumber == null || guessNumber.isEmpty()) {
             return false;
         }
+
+        Set<Character> numberSet = new HashSet<>();
         char[] numberElements = guessNumber.toCharArray();
         for (char numberEle: numberElements) {
-            if (guessNumber.indexOf(numberEle) != guessNumber.lastIndexOf(numberEle)) {
-                return true;
-            }
+            numberSet.add(numberEle);
         }
-        return false;
+        return numberSet.size() == guessNumber.length();
     }
 
 
     public String guessNumber(String guessNumber) {
-        String randomNumber = fourNumberGenerate.generateRandomNumber();
-        return this.printGuessNumberResult(guessNumber, randomNumber);
+        if (isVirtualNumber(guessNumber)) {
+            String randomNumber = fourNumberGenerate.generateRandomNumber();
+            return this.printGuessNumberResult(guessNumber, randomNumber);
+        } else {
+            return "Wrong Input，Input again";
+        }
+
 
 //        if (guessNumberGenerate.generateRandomNumber().equals(guessNumber)) {
 //            return "4A0B";
@@ -85,8 +89,11 @@ public class GuessNumberGame {
             }
         }
 
-        if (countA == countB) {
-            countB = 0;
+//        if (countA == countB) {
+//            countB = 0;
+//        }
+        if (countA + countB > 4) {
+            countB = 4 - countA;
         }
 
         return String.format("%sA%sB", countA, countB);
