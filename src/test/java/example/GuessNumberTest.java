@@ -80,6 +80,6 @@ public class GuessNumberTest {
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
-        assertEquals("0A2B", actualResult);
+        assertEquals("0A0B", actualResult);
     }
 }
