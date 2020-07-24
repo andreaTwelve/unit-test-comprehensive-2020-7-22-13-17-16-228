@@ -27,4 +27,15 @@ public class GuessNumberVeritificationTest {
         //then
         assertFalse(isValid);
     }
+
+    @Test
+    void should_return_false_when_number_has_no_space_given_1234() {
+        //given
+        String guessNumber = "1234";
+        GuessNumberValidation guessNumberValidation = new GuessNumberValidation();
+        //when
+        boolean isValid = guessNumberValidation.checkNumberHasSpace(guessNumber);
+        //then
+        assertFalse(isValid);
+    }
 }

@@ -7,4 +7,8 @@ public class GuessNumberValidation {
         }
         return false;
     }
+
+    public boolean checkNumberHasSpace(String guessNumber) {
+        return false;
+    }
 }
