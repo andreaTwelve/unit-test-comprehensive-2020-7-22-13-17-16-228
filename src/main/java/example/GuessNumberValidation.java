@@ -1,5 +1,7 @@
 package example;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class GuessNumberValidation {
@@ -20,6 +22,15 @@ public class GuessNumberValidation {
     }
 
     public boolean checkNumberIsNotRepeat(String guessNumber) {
-        return false;
+        if (guessNumber == null || guessNumber.isEmpty()) {
+            return false;
+        }
+
+        Set<Character> numberSet = new HashSet<>();
+        char[] numberElements = guessNumber.toCharArray();
+        for (char numberEle: numberElements) {
+            numberSet.add(numberEle);
+        }
+        return numberSet.size() == guessNumber.length();
     }
 }
