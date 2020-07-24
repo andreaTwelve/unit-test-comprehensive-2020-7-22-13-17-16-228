@@ -6,10 +6,7 @@ import java.util.regex.Pattern;
 
 public class GuessNumberValidation {
     public boolean checkLengthIsValidate(String guessNumber) {
-        if (guessNumber.replaceAll("\\s+","").length() == 4) {
-            return true;
-        }
-        return false;
+        return guessNumber != null && guessNumber.length() > 0 && guessNumber.replaceAll("\\s+", "").length() == 4;
     }
 
     public boolean checkNumberHasSpace(String guessNumber) {

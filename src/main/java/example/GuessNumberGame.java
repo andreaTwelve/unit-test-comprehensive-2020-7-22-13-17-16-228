@@ -33,8 +33,10 @@ public class GuessNumberGame {
 
 
     //todo
+
     public String guessNumber(String guessNumber) {
-        if (isValidNumber(guessNumber)) {
+        GuessNumberValidation guessNumberValidation = new GuessNumberValidation();
+        if (guessNumberValidation.checkLengthIsValidate(guessNumber)) {
             String randomNumber = fourNumberGenerate.generateRandomNumber();
             return this.printGuessNumberResult(guessNumber, randomNumber);
         } else {

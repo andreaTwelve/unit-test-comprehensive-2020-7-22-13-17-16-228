@@ -16,14 +16,9 @@ public class GuessNumberTest {
         given(stubGuessNumberGenerate.generateRandomNumber()).willReturn("1234");
 
         //when
-        boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber;
-        isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
-        assertFalse(containsNotRepeatNumber);
-        assertFalse(isVirtualNumber);
         assertEquals("Wrong Input，Input again", actualResult);
 
     }
@@ -37,19 +32,11 @@ public class GuessNumberTest {
         GuessNumberGame guessNumberGame = new GuessNumberGame(stubGuessNumberGenerate);
         given(stubGuessNumberGenerate.generateRandomNumber()).willReturn("1234");
 
-
         //when
-        String randomNumber = stubGuessNumberGenerate.generateRandomNumber();
-        boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
-
         //then
-        assertTrue(containsNotRepeatNumber);
-        assertTrue(isVirtualNumber);
         assertEquals("4A0B", actualResult);
-
     }
 
     @Test
