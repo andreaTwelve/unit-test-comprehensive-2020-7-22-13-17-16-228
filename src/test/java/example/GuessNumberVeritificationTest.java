@@ -31,7 +31,7 @@ public class GuessNumberVeritificationTest {
     @Test
     void should_return_false_when_number_has_no_space_given_1234() {
         //given
-        String guessNumber = "1234";
+        String guessNumber = "1 23 4";
         GuessNumberValidation guessNumberValidation = new GuessNumberValidation();
         //when
         boolean isValid = guessNumberValidation.checkNumberHasSpace(guessNumber);
