@@ -14,4 +14,8 @@ public class GuessNumberValidation {
         String pattern = "\\d\\s\\d\\s\\d\\s\\d";
         return Pattern.matches(pattern, guessNumber);
     }
+
+    public boolean checkNumberType(String guessNumber) {
+        return false;
+    }
 }

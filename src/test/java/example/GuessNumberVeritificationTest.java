@@ -39,4 +39,14 @@ public class GuessNumberVeritificationTest {
         assertFalse(isValid);
     }
 
+    @Test
+    void should_return_false_when_number_is_1ay0_given_1234() {
+        //given
+        String guessNumber = "1ay0";
+        GuessNumberValidation guessNumberValidation = new GuessNumberValidation();
+        //when
+        boolean isValid = guessNumberValidation.checkNumberType(guessNumber);
+        //then
+        assertFalse(isValid);
+    }
 }
