@@ -19,15 +19,12 @@ public class GuessNumberValidation {
     }
 
     public boolean checkNumberIsNotRepeat(String guessNumber) {
-        if (guessNumber == null || guessNumber.isEmpty()) {
-            return false;
-        }
-
+        String guess = guessNumber.replaceAll("\\s+", "");
         Set<Character> numberSet = new HashSet<>();
-        char[] numberElements = guessNumber.toCharArray();
+        char[] numberElements = guess.toCharArray();
         for (char numberEle: numberElements) {
             numberSet.add(numberEle);
         }
-        return numberSet.size() == guessNumber.length();
+        return numberSet.size() == guess.length();
     }
 }
