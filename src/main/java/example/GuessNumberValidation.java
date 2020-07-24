@@ -1,5 +1,7 @@
 package example;
 
+import java.util.regex.Pattern;
+
 public class GuessNumberValidation {
     public boolean checkLengthIsValidate(String guessNumber) {
         if (guessNumber.replaceAll("\\s+","").length() == 4) {
@@ -9,6 +11,7 @@ public class GuessNumberValidation {
     }
 
     public boolean checkNumberHasSpace(String guessNumber) {
-        return false;
+        String pattern = "\\d\\s\\d\\s\\d\\s\\d";
+        return Pattern.matches(pattern, guessNumber);
     }
 }

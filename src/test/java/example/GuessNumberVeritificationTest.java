@@ -38,4 +38,5 @@ public class GuessNumberVeritificationTest {
         //then
         assertFalse(isValid);
     }
+
 }
