@@ -10,7 +10,7 @@ public class GuessNumberGame {
         this.fourNumberGenerate = fourNumberGenerate;
     }
 
-    public boolean isVirtualNumber(String guessNumber) {
+    public boolean isValidNumber(String guessNumber) {
         String number = guessNumber.trim();
         if (number.length() == 4 && containNotRepeatCharacter(number) && Integer.parseInt(number) >= 0 && Integer.parseInt(number) <= 9999) {
             return true;
@@ -32,8 +32,9 @@ public class GuessNumberGame {
     }
 
 
+    //todo
     public String guessNumber(String guessNumber) {
-        if (isVirtualNumber(guessNumber)) {
+        if (isValidNumber(guessNumber)) {
             String randomNumber = fourNumberGenerate.generateRandomNumber();
             return this.printGuessNumberResult(guessNumber, randomNumber);
         } else {

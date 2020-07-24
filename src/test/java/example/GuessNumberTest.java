@@ -18,14 +18,16 @@ public class GuessNumberTest {
         //when
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
         boolean isVirtualNumber;
-        isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
         assertFalse(containsNotRepeatNumber);
         assertFalse(isVirtualNumber);
         assertEquals("Wrong Input，Input again", actualResult);
+
     }
+
 
     @Test
     void should_return_4A0B_when_number_is_1234_given_1234() {
@@ -39,7 +41,7 @@ public class GuessNumberTest {
         //when
         String randomNumber = stubGuessNumberGenerate.generateRandomNumber();
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
 
@@ -61,7 +63,7 @@ public class GuessNumberTest {
         //when
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
         boolean isVirtualNumber;
-        isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
@@ -80,7 +82,7 @@ public class GuessNumberTest {
 
         //when
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
@@ -99,7 +101,7 @@ public class GuessNumberTest {
 
         //when
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
@@ -118,7 +120,7 @@ public class GuessNumberTest {
 
         //when
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
@@ -137,7 +139,7 @@ public class GuessNumberTest {
 
         //when
         boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isVirtualNumber(guessNumber);
+        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
