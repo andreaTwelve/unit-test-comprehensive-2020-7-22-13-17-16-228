@@ -18,4 +18,8 @@ public class GuessNumberValidation {
     public boolean checkNumberType(String guessNumber) {
         return false;
     }
+
+    public boolean checkNumberIsNotRepeat(String guessNumber) {
+        return false;
+    }
 }
