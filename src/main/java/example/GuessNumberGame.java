@@ -10,30 +10,7 @@ public class GuessNumberGame {
         this.fourNumberGenerate = fourNumberGenerate;
     }
 
-    public boolean isValidNumber(String guessNumber) {
-        String number = guessNumber.trim();
-        if (number.length() == 4 && containNotRepeatCharacter(number) && Integer.parseInt(number) >= 0 && Integer.parseInt(number) <= 9999) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean containNotRepeatCharacter(String guessNumber) {
-        if (guessNumber == null || guessNumber.isEmpty()) {
-            return false;
-        }
-
-        Set<Character> numberSet = new HashSet<>();
-        char[] numberElements = guessNumber.toCharArray();
-        for (char numberEle: numberElements) {
-            numberSet.add(numberEle);
-        }
-        return numberSet.size() == guessNumber.length();
-    }
-
-
     //todo
-
     public String guessNumber(String guessNumber) {
         GuessNumberValidation guessNumberValidation = new GuessNumberValidation();
         if (guessNumberValidation.checkLengthIsValidate(guessNumber) && guessNumberValidation.checkNumberHasSpace(guessNumber) && guessNumberValidation.checkNumberIsNotRepeat(guessNumber)) {
@@ -62,4 +39,15 @@ public class GuessNumberGame {
         return String.format("%sA%sB", countRightNumberRightPosition, countRightNumberErrorPosition);
     }
 
+    public static void main(String[] args) {
+        FourNumberGenerate fourNumberGenerate = new FourNumberGenerate();
+        GuessNumberGame guessNumberGame = new GuessNumberGame(fourNumberGenerate);
+        int i = 0;
+        while (i < 6) {
+            System.out.println("input");
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(guessNumberGame.guessNumber(scanner.nextLine()));
+            ++i;
+        }
+    }
 }
