@@ -48,14 +48,9 @@ public class GuessNumberTest {
         given(stubGuessNumberGenerate.generateRandomNumber()).willReturn("1234");
 
         //when
-        boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber;
-        isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
-        assertTrue(containsNotRepeatNumber);
-        assertTrue(isVirtualNumber);
         assertEquals("2A2B", actualResult);
     }
 
@@ -68,18 +63,14 @@ public class GuessNumberTest {
         given(stubGuessNumberGenerate.generateRandomNumber()).willReturn("1234");
 
         //when
-        boolean containsNotRepeatNumber = guessNumberGame.containNotRepeatCharacter(guessNumber);
-        boolean isVirtualNumber = guessNumberGame.isValidNumber(guessNumber);
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
-        assertTrue(containsNotRepeatNumber);
-        assertTrue(isVirtualNumber);
         assertEquals("0A4B", actualResult);
     }
 
     @Test
-    void should_return_1A3B_when_number_is_1023_given_1234() {
+    void should_return_1A2B_when_number_is_1023_given_1234() {
         //given
         String guessNumber = "1 0 2 3";
         FourNumberGenerate stubGuessNumberGenerate = Mockito.mock(FourNumberGenerate.class);
@@ -90,7 +81,7 @@ public class GuessNumberTest {
         String actualResult = guessNumberGame.guessNumber(guessNumber);
 
         //then
-        assertEquals("1A3B", actualResult);
+        assertEquals("1A2B", actualResult);
     }
 
     @Test

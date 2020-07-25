@@ -36,7 +36,7 @@ public class GuessNumberGame {
 
     public String guessNumber(String guessNumber) {
         GuessNumberValidation guessNumberValidation = new GuessNumberValidation();
-        if (guessNumberValidation.checkNumberIsNotRepeat(guessNumber)) {
+        if (guessNumberValidation.checkLengthIsValidate(guessNumber) && guessNumberValidation.checkNumberHasSpace(guessNumber) && guessNumberValidation.checkNumberIsNotRepeat(guessNumber)) {
             String randomNumber = fourNumberGenerate.generateRandomNumber();
             return this.printGuessNumberResult(guessNumber, randomNumber);
         } else {
@@ -47,36 +47,19 @@ public class GuessNumberGame {
 
 
     public String printGuessNumberResult(String guessNumber, String randomNumber) {
-        char[] numberCharArr = guessNumber.trim().toCharArray();
-        Map<Character, Integer> numberIndexMap = new HashMap<>();
-
-        int countB = 0;
-        for (int i = 0; i < numberCharArr.length; i++) {
-            if (randomNumber.indexOf(numberCharArr[i]) != -1) {
-                countB++;
-                numberIndexMap.put(numberCharArr[i], i);
-            }
-        }
-
-        char[] randomCharArr = randomNumber.trim().toCharArray();
-        Map<Character, Integer> randomNumberIndexMap = new HashMap<>();
-        int countA = 0;
-        for (int i = 0; i < randomCharArr.length; i++) {
-            randomNumberIndexMap.put(randomCharArr[i], i);
-        }
-        for (Map.Entry<Character, Integer> entry: numberIndexMap.entrySet()) {
-            for (Map.Entry<Character, Integer> randomEntry: randomNumberIndexMap.entrySet()) {
-                if (entry.getKey() == randomEntry.getKey() && entry.getValue().equals(randomEntry.getValue())) {
-                    countA++;
+        int countRightNumberRightPosition = 0;
+        int countRightNumberErrorPosition = 0;
+        String[] numberArr = guessNumber.replaceAll("\\s+", "").split("");
+        for (int i = 0; i < numberArr.length; i++) {
+            if (randomNumber.contains(numberArr[i])) {
+                if (randomNumber.indexOf(numberArr[i]) == i) {
+                    countRightNumberRightPosition++;
+                } else {
+                    countRightNumberErrorPosition++;
                 }
             }
         }
-
-        if (countA + countB > 4) {
-            countB = 4 - countA;
-        }
-
-        return String.format("%sA%sB", countA, countB);
+        return String.format("%sA%sB", countRightNumberRightPosition, countRightNumberErrorPosition);
     }
 
 }
