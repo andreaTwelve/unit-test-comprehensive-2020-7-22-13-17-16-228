@@ -5,21 +5,22 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public class GuessNumberValidation {
+
+    public static final String SPACE_PATTERN = "\\s+";
+    public static final String EMPTY_STRING = "";
+    public static final String CONTAINS_SPACE_NUMBER = "\\d\\s\\d\\s\\d\\s\\d";
+
     public boolean checkLengthIsValidate(String guessNumber) {
-        return guessNumber != null && guessNumber.length() > 0 && guessNumber.replaceAll("\\s+", "").length() == 4;
+        return guessNumber != null && guessNumber.length() > 0 && guessNumber.replaceAll(SPACE_PATTERN, EMPTY_STRING).length() == 4;
     }
 
     public boolean checkNumberHasSpace(String guessNumber) {
-        String pattern = "\\d\\s\\d\\s\\d\\s\\d";
+        String pattern = CONTAINS_SPACE_NUMBER;
         return Pattern.matches(pattern, guessNumber);
     }
 
-    public boolean checkNumberType(String guessNumber) {
-        return false;
-    }
-
     public boolean checkNumberIsNotRepeat(String guessNumber) {
-        String guess = guessNumber.replaceAll("\\s+", "");
+        String guess = guessNumber.replaceAll(SPACE_PATTERN, EMPTY_STRING);
         Set<Character> numberSet = new HashSet<>();
         char[] numberElements = guess.toCharArray();
         for (char numberEle: numberElements) {
