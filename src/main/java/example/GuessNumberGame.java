@@ -3,6 +3,8 @@ package example;
 import java.util.*;
 
 public class GuessNumberGame {
+    public static final String SPACE_PATTERN = "\\s+";
+    public static final String EMPTY_STRING = "";
     private FourNumberGenerate fourNumberGenerate;
 
     public GuessNumberGame(FourNumberGenerate fourNumberGenerate) {
@@ -25,7 +27,7 @@ public class GuessNumberGame {
     public String printGuessNumberResult(String guessNumber, String randomNumber) {
         int countRightNumberRightPosition = 0;
         int countRightNumberErrorPosition = 0;
-        String[] numberArr = guessNumber.replaceAll("\\s+", "").split("");
+        String[] numberArr = guessNumber.replaceAll(SPACE_PATTERN, EMPTY_STRING).split(EMPTY_STRING);
         for (int i = 0; i < numberArr.length; i++) {
             if (randomNumber.contains(numberArr[i])) {
                 if (randomNumber.indexOf(numberArr[i]) == i) {
