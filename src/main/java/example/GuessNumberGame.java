@@ -42,11 +42,12 @@ public class GuessNumberGame {
         FourNumberGenerate fourNumberGenerate = new FourNumberGenerate();
         GuessNumberGame guessNumberGame = new GuessNumberGame(fourNumberGenerate);
         int guessTimes = 0;
+        Scanner scanner = new Scanner(System.in);
         while (guessTimes < 6) {
             System.out.println("input");
-            Scanner scanner = new Scanner(System.in);
             System.out.println(guessNumberGame.guessNumber(scanner.nextLine()));
             ++guessTimes;
         }
+        scanner.close();
     }
 }
