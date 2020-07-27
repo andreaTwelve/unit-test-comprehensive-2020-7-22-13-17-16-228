@@ -41,12 +41,12 @@ public class GuessNumberGame {
     public static void main(String[] args) {
         FourNumberGenerate fourNumberGenerate = new FourNumberGenerate();
         GuessNumberGame guessNumberGame = new GuessNumberGame(fourNumberGenerate);
-        int i = 0;
-        while (i < 6) {
+        int guessTimes = 0;
+        while (guessTimes < 6) {
             System.out.println("input");
             Scanner scanner = new Scanner(System.in);
             System.out.println(guessNumberGame.guessNumber(scanner.nextLine()));
-            ++i;
+            ++guessTimes;
         }
     }
 }
