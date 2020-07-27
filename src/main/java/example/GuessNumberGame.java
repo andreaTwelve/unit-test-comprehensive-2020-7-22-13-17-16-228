@@ -1,7 +1,6 @@
 package example;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class GuessNumberGame {
     private FourNumberGenerate fourNumberGenerate;
